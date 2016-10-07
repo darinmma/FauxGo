@@ -11,5 +11,5 @@ Click Here for [User Stories](https://trello.com/b/idPf1BgD/project-1-go-go-go)
 ##Wireframes
 
 ![wireframe1](./assets/IMG_1959.JPG)
-
+![wireframe2](.assets/IMG_1960.JPG)
 
