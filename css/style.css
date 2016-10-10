@@ -1,0 +1,86 @@
+body {
+  background-color: gray;
+  text-align: center;
+}
+
+#board {
+  height: 950 px;
+  width: 950 px;
+  margin: 0 auto;
+}
+
+.base {
+  height: 100px;
+  width: 908px;
+  margin: 0 auto;
+  display: block;
+  clear: left;
+}
+
+.playable {
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  float: left;
+  background-color: yellow;
+  text-align: center;
+  font-size: 90px;
+}
+
+.column1,.column2, .column3, .column4, .column5, .column6, .column7, .column8 {
+  border-right: 1px solid red;
+}
+
+#row1,#row2,#row3,#row4,#row5,#row6,#row7,#row8 {
+  border-bottom: 1px solid red;
+}
+
+aside {
+  width:200px;
+  height: 908px;
+  display: inline;
+  float: right;
+}
+
+.row {
+  height: 100px;
+}
+
+/*board overlay*/
+
+#grid {
+  position: relative;
+  /*border: 1px solid blue;*/
+}
+
+.row {
+  /*border: 1px solid blue;*/
+  height: 102px;
+  width: 820px;
+  z-index: 1;
+  display: inline-block;
+  margin: 0 auto;
+  position: fixed;
+}
+
+.gridBox {
+  height: 100px;
+  width:100px;
+  border: 1px solid blue;
+  display: inline-block;
+  float:left;
+}
+
+.black {
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  background-color: black;
+}
+
+.white {
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  background-color: white;
+}
