@@ -21,7 +21,7 @@ for(var i = 0; i < playable.length; i++){
     }
     switchTurn();
     } else {
-    alert('Please replay your turn');
+    alert('Please replay your turn ');
   };
 })
 }
