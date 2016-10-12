@@ -5,7 +5,7 @@ console.log('loaded')
 
 var currentTurn = 'B';
 var playable = $('.playable');
-console.log(playable);
+// console.log(playable);
 
 //plays pieces on the board, alternating turns
 
@@ -15,11 +15,11 @@ playable.on('click', function() {
   )};
   if($(this).hasClass('unplayed')) {
     if(currentTurn == 'B') {
-      console.log('adding class black')
+      // console.log('adding class black')
       $(this).addClass('black')
       $(this).removeClass('unplayed')
     } else {
-      console.log('adding class white')
+      // console.log('adding class white')
       $(this).addClass('white')
       $(this).removeClass('unplayed')
     }
@@ -28,14 +28,12 @@ playable.on('click', function() {
   } else {
     alert('Please replay your turn');
   }
-  // checkPrisoner($(this).attr('id'));
-  console.log('check for prisoners');
-  // checkWin();
 })
 
 //switch turns callback
 
 function switchTurn() {
+  console.log("switching turn now")
   if(currentTurn == 'B') {
     currentTurn = 'W';
   } else {
@@ -51,8 +49,8 @@ function createNeighbors(self) {
   console.log(coord)
   var yCoord = parseInt(coord[0])
   var xCoord = parseInt(coord[1])
-  console.log(yCoord)
-  console.log(xCoord)
+  // console.log(yCoord)
+  // console.log(xCoord)
   if (yCoord > 1) {
     var above = [(yCoord-1), xCoord].join('')
     neighbors.push(above)
@@ -68,13 +66,15 @@ function createNeighbors(self) {
   if (xCoord > 1) {
     var left = [yCoord,(xCoord - 1)].join('')
     neighbors.push(left)
-    console.log(neighbors)
-    checkNeighbors(neighbors,self)
   }
+  console.log(neighbors)
+  checkNeighbors(neighbors)
 }
 
-function checkNeighbors(neighborsArr,playedDiv) {
+function checkNeighbors(neighborsArr) {
+  // console.log(neighborsArr)
   for(var i = 0; i < neighborsArr.length; i++) {
+    console.log("looking at neighbor", neighborsArr[i])
     var neighborId = '#' + neighborsArr[i]
     if (currentTurn == 'B' && $(neighborId).hasClass('white')){
       var captureArray = []
@@ -82,8 +82,6 @@ function checkNeighbors(neighborsArr,playedDiv) {
       console.log(captureCoord)
       var yCoord = parseInt(captureCoord[0])
       var xCoord = parseInt(captureCoord[1])
-      console.log(yCoord)
-      console.log(xCoord)
       if (yCoord > 1) {
         var above = [(yCoord-1), xCoord].join('')
         captureArray.push(above)
@@ -101,14 +99,19 @@ function checkNeighbors(neighborsArr,playedDiv) {
         captureArray.push(left)
         // checkTaken(captureArray, possPrisoner)
       }
-      console.log(captureArray)
+      console.log("capture array: ", captureArray)
       var captured = true
-      for(var i = 0; i < captureArray.length; i++) {
-        var captureId = '#' + captureArray[i]
+      for(var j = 0; j < captureArray.length; j++) {
+        var captureId = '#' + captureArray[j]
+        console.log("looking at: ", captureId)
         if (!$(captureId).hasClass('black')) {
+          console.log('found a friend or its blank')
           captured = false
+        } else {
+          console.log('thats an enemy')
         }
       }
+      console.log("captured is", captured)
       if (captured) {
         alert('Captured!')
       }
@@ -116,21 +119,6 @@ function checkNeighbors(neighborsArr,playedDiv) {
   }
 }
 
-// function checkNeighbors(neighborsArr,playedSpot) {
-//   if (currentTurn === 'B')
-//   for(var i = 0; i < neighborsArr.length; i++) {
-//     if($('#' + neighborsArr[i]).hasClass('white')){
-//       // $(playedSpot).removeClass('black')
-//       $(playedSpot).addClass('taken')
-//     } else if(currentTurn === 'W')
-//       for(var i = 0; i < neighborsArr.length; i++) {
-//         if($('#' + neighborsArr[i]).hasClass('black')){
-//           // $(playedSpot).removeClass('white')
-//           $(playedSpot).addClass('taken')
-//         }
-//     }
-// }
-// }
 // reset button for game
 
 var resetButton = $('#resetGame');
