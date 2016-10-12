@@ -122,7 +122,8 @@ function checkNeighbors(neighborsArr) {
       }
       console.log("captured is", captured)
       if (captured) {
-        alert("Captured!")
+        setTimeout(function(){alert("Captured!")}, 500)
+
       }
     }
   }
@@ -137,5 +138,7 @@ resetButton.on('click', function(){
     playable.eq(i).removeClass('black white')
     playable.eq(i).addClass('unplayed')
   }
-    currentTurn = 'B';
+    currentTurn = 'B'
+    $('#displayTurn').removeClass('white black')
+    $('#displayTurn').addClass('black')
 })
