@@ -1,6 +1,5 @@
 console.log('loaded')
 
-
 //sets currentTurn to black, starting
 
 var currentTurn = 'B';
@@ -76,7 +75,16 @@ function checkNeighbors(neighborsArr) {
   for(var i = 0; i < neighborsArr.length; i++) {
     console.log("looking at neighbor", neighborsArr[i])
     var neighborId = '#' + neighborsArr[i]
-    if (currentTurn == 'B' && $(neighborId).hasClass('white')){
+    var friend
+    var enemy
+    if (currentTurn == 'B') {
+      friend = 'black'
+      enemy = 'white'
+    } else {
+        friend = 'white'
+        enemy = 'black'
+      }
+    if ($(neighborId).hasClass(enemy)){
       var captureArray = []
       var captureCoord = neighborsArr[i].split('')
       console.log(captureCoord)
@@ -97,14 +105,13 @@ function checkNeighbors(neighborsArr) {
       if (xCoord > 1) {
         var left = [yCoord,(xCoord - 1)].join('')
         captureArray.push(left)
-        // checkTaken(captureArray, possPrisoner)
       }
       console.log("capture array: ", captureArray)
       var captured = true
       for(var j = 0; j < captureArray.length; j++) {
         var captureId = '#' + captureArray[j]
         console.log("looking at: ", captureId)
-        if (!$(captureId).hasClass('black')) {
+        if (!$(captureId).hasClass(friend)) {
           console.log('found a friend or its blank')
           captured = false
         } else {
@@ -113,7 +120,7 @@ function checkNeighbors(neighborsArr) {
       }
       console.log("captured is", captured)
       if (captured) {
-        alert('Captured!')
+        alert("Captured!")
       }
     }
   }
