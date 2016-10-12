@@ -69,3 +69,9 @@ aside {
   background-image: url('../assets/white.png');
   background-size: cover;
 }
+
+.taken {
+  background-image: url('../assets/prisonbars.png');
+  background-size: cover;
+  z-index: 1;
+}
