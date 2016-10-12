@@ -3,12 +3,14 @@ console.log('loaded')
 //sets currentTurn to black, starting
 
 var currentTurn = 'B';
+
 var playable = $('.playable');
 // console.log(playable);
 
 //plays pieces on the board, alternating turns
 
 playable.on('click', function() {
+  $('#displayTurn').toggleClass('white black')
   if($(this).html() == '') {
     console.log("you clicked on", this
   )};

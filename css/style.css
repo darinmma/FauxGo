@@ -9,10 +9,13 @@ body {
   background-size: cover;
 }
 
+section {
+  display:inline-block;
+}
 #board {
   height: 900px;
   width: 900px;
-  margin: 0 auto;
+  margin-left: 100px;
   background-image: url('https://www.britgo.org/files/pubs/9x9board.jpg');
   background-size: cover;
 }
@@ -46,8 +49,9 @@ body {
 aside {
   width:200px;
   height: 908px;
-  display: inline;
+  display: inline-block;
   float: right;
+  margin-right: 100px;
 }
 
 .row {
@@ -74,4 +78,10 @@ aside {
   background-image: url('../assets/prisonbars.png');
   background-size: cover;
   z-index: 1;
+}
+
+#displayTurn {
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
 }
