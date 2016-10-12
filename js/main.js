@@ -75,13 +75,15 @@ function createNeighbors(self) {
 
 function checkNeighbors(neighborsArr,playedDiv) {
   for(var i = 0; i < neighborsArr.length; i++) {
-    if (currentTurn == 'B' && $(neighborsArr).eq(i).hasClass('white')){
+    var neighborId = '#' + neighborsArr[i]
+    if (currentTurn == 'B' && $(neighborId).hasClass('white')){
       var captureArray = []
-      var captureCoord = $(neighborsArr).eq(i).attr('id').split('')
+      var captureCoord = neighborsArr[i].split('')
       console.log(captureCoord)
-      var yCoord = parseInt(coord[0])
-      var xCoord = parseInt(coord[1])
-      console.log(coord)
+      var yCoord = parseInt(captureCoord[0])
+      var xCoord = parseInt(captureCoord[1])
+      console.log(yCoord)
+      console.log(xCoord)
       if (yCoord > 1) {
         var above = [(yCoord-1), xCoord].join('')
         captureArray.push(above)
@@ -97,11 +99,21 @@ function checkNeighbors(neighborsArr,playedDiv) {
       if (xCoord > 1) {
         var left = [yCoord,(xCoord - 1)].join('')
         captureArray.push(left)
-        console.log(captureArray)
-        checkTaken(captureArray, possPrisoner)
+        // checkTaken(captureArray, possPrisoner)
+      }
+      console.log(captureArray)
+      var captured = true
+      for(var i = 0; i < captureArray.length; i++) {
+        var captureId = '#' + captureArray[i]
+        if (!$(captureId).hasClass('black')) {
+          captured = false
+        }
+      }
+      if (captured) {
+        alert('Captured!')
+      }
     }
   }
-}
 }
 
 // function checkNeighbors(neighborsArr,playedSpot) {
