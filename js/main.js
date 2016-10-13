@@ -14,6 +14,7 @@ var playable = $('.playable');
 
 playable.on('click', function() {
   $('#displayTurn').toggleClass('white black')
+  $('#displayTurnSmall').toggleClass('white black')
   if($(this).html() == '') {
     console.log("you clicked on", this
   )};
@@ -54,8 +55,6 @@ function createNeighbors(self) {
   console.log(coord)
   var yCoord = parseInt(coord[0])
   var xCoord = parseInt(coord[1])
-  // console.log(yCoord)
-  // console.log(xCoord)
   if (yCoord > 1) {
     var above = [(yCoord-1), xCoord].join('')
     neighbors.push(above)
@@ -124,11 +123,11 @@ function checkNeighbors(neighborsArr) {
       if (captured && enemy == 'white' && capturedWhite <= 2) {
         setTimeout(function(){alert("Captured White Piece!")}, 500)
         capturedWhite++
-        $('#whiteCaught').html(capturedWhite)
+        $('.whiteCaught').html(capturedWhite)
       } else if (captured && enemy == 'black' && capturedBlack <= 2) {
         setTimeout(function(){alert("Captured Black Piece!")}, 500)
         capturedBlack++
-        $('#blackCaught').html(capturedBlack)
+        $('.blackCaught').html(capturedBlack)
       }
     }
   }
@@ -155,8 +154,10 @@ resetButton.on('click', function(){
   }
     currentTurn = 'B'
     $('#displayTurn').removeClass('white black')
+    $('#displayTurnSmall').removeClass('white black')
     $('#displayTurn').addClass('black')
-    $('#blackCaught').html(0)
-    $('#whiteCaught').html(0)
+    $('#displayTurnSmall').addClass('black')
+    $('.blackCaught').html(0)
+    $('.whiteCaught').html(0)
     $('h1').html('GO GO GO!')
 })

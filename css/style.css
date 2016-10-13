@@ -92,13 +92,13 @@ aside {
   z-index: 1;
 }
 
-#displayTurn {
+#displayTurn, #displayTurnSmall {
   height: 100px;
   width: 100px;
   margin: 0 auto;
 }
 
-#blackCaught, #whiteCaught {
+.blackCaught, .whiteCaught {
   font-family: 'Bangers', cursive;
   font-size: 4em;
 }
