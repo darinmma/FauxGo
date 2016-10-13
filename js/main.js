@@ -3,22 +3,18 @@ console.log('loaded')
 //sets currentTurn to black, starting
 var capturedWhite = 0
 var capturedBlack = 0
-
 var currentTurn = 'B';
-
 var playable = $('.playable');
-
-// console.log(playable);
 
 //plays pieces on the board, alternating turns
 
 playable.on('click', function() {
-  $('#displayTurn').toggleClass('white black')
-  $('#displayTurnSmall').toggleClass('white black')
   if($(this).html() == '') {
     console.log("you clicked on", this
   )};
   if($(this).hasClass('unplayed')) {
+    $('#displayTurn').toggleClass('white black')
+    $('#displayTurnSmall').toggleClass('white black')
     if(currentTurn == 'B') {
       // console.log('adding class black')
       $(this).addClass('black')
@@ -145,7 +141,7 @@ function checkWin() {
 
 // reset button for game
 
-var resetButton = $('#resetGame');
+var resetButton = $('.resetGame');
 
 resetButton.on('click', function(){
   for(var i = 0; i < playable.length; i++){
@@ -159,5 +155,5 @@ resetButton.on('click', function(){
     $('#displayTurnSmall').addClass('black')
     $('.blackCaught').html(0)
     $('.whiteCaught').html(0)
-    $('h1').html('GO GO GO!')
+    $('h1').html('Faux GO!')
 })

@@ -72,6 +72,15 @@ aside {
   background-color: #ff0000;
 }
 
+#lower {
+  height: auto;
+  width: 477px;
+  margin: 0 auto;
+  background-color: #ff0000;
+  display:block;
+  float:left;
+}
+
 .row {
   height: 80px;
 }
@@ -290,5 +299,9 @@ aside {
     width: 123px;
     float: left;
     background-color: #ff0000;
+  }
+
+  #lower {
+    width: 369px;
   }
 }
