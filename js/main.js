@@ -29,6 +29,7 @@ playable.on('click', function() {
     }
     createNeighbors(this)
     switchTurn()
+    checkWin()
   } else {
     alert('Please replay your turn');
   }
@@ -120,16 +121,26 @@ function checkNeighbors(neighborsArr) {
         }
       }
       console.log("captured is", captured)
-      if (captured && enemy == 'white') {
+      if (captured && enemy == 'white' && capturedWhite <= 2) {
         setTimeout(function(){alert("Captured White Piece!")}, 500)
         capturedWhite++
         $('#whiteCaught').html(capturedWhite)
-      } else if (captured && enemy == 'black') {
+      } else if (captured && enemy == 'black' && capturedBlack <= 2) {
         setTimeout(function(){alert("Captured Black Piece!")}, 500)
         capturedBlack++
         $('#blackCaught').html(capturedBlack)
       }
     }
+  }
+}
+
+//check win logic
+
+function checkWin() {
+  if (capturedBlack == 3){
+    $('h1').html('White Player Wins!!!!')
+  } else if (capturedWhite == 3){
+    $('h1').html('Black Player Wins!!!!')
   }
 }
 
@@ -147,4 +158,5 @@ resetButton.on('click', function(){
     $('#displayTurn').addClass('black')
     $('#blackCaught').html(0)
     $('#whiteCaught').html(0)
+    $('h1').html('GO GO GO!')
 })
