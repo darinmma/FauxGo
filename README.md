@@ -8,6 +8,14 @@ Welcome to Faux Go!,  A basic version of the classic game that has existed for g
 
 HTML, CSS, Javascript and JQuery were used to create this Game.
 
+##Approach
+
+Go is a simple game of strategy that can become quite complex.  What you have before you is a simplified version which tracks single piece capture events.  In order to make the game work I used HTML and CSS to create a game board and Javascript to built my game logic.  I also utilized JQuery to track the pieces on the board as well as score tracking.
+
+##Unsolved Problems
+
+I haven't yet been able to figure out how to remove captured pieces from the game board.
+
 ##User Stories
 
 Click Here for [User Stories](https://trello.com/b/idPf1BgD/project-1-go-go-go)
@@ -17,3 +25,6 @@ Click Here for [User Stories](https://trello.com/b/idPf1BgD/project-1-go-go-go)
 ![wireframe1](./assets/IMG_1959.JPG)
 ![wireframe2](./assets/IMG_1960.JPG)
 
+##Installation Instructions
+
+Navigate to www.github.com/darinmma/Project01 and clone the respository.
