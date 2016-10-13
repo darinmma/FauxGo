@@ -2,7 +2,7 @@
 
 ##Introduction
 
-Welcome to Faux Go!,  A basic version of the classic game that has existed for generations!  The object of this game is to place the pieces on the board to capture territory.  Surround the opposing pieces and claim them as your prisoners!  Black always goes first.  The winner is determined by the total territory captured as well as prisoners taken.  **_GOOD LUCK!!!_**
+Welcome to Faux Go!,  A basic version of the classic game that has existed for generations!  The object of this game is to place the pieces on the board to capture territory.  Surround the opposing pieces and claim them as your prisoners!  Black always goes first.  Whoever traps 3 pieces first wins.  **_GOOD LUCK!!!_**
 
 ##Technologies Used
 
