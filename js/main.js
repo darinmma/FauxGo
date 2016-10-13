@@ -1,10 +1,13 @@
 console.log('loaded')
 
 //sets currentTurn to black, starting
+var capturedWhite = 0
+var capturedBlack = 0
 
 var currentTurn = 'B';
 
 var playable = $('.playable');
+
 // console.log(playable);
 
 //plays pieces on the board, alternating turns
@@ -73,7 +76,6 @@ function createNeighbors(self) {
 }
 
 function checkNeighbors(neighborsArr) {
-  // console.log(neighborsArr)
   for(var i = 0; i < neighborsArr.length; i++) {
     console.log("looking at neighbor", neighborsArr[i])
     var neighborId = '#' + neighborsArr[i]
@@ -112,18 +114,20 @@ function checkNeighbors(neighborsArr) {
       var captured = true
       for(var j = 0; j < captureArray.length; j++) {
         var captureId = '#' + captureArray[j]
-        console.log("looking at: ", captureId)
         if (!$(captureId).hasClass(friend)) {
-          console.log('found a friend or its blank')
           captured = false
         } else {
-          console.log('thats an enemy')
         }
       }
       console.log("captured is", captured)
-      if (captured) {
-        setTimeout(function(){alert("Captured!")}, 500)
-
+      if (captured && enemy == 'white') {
+        setTimeout(function(){alert("Captured White Piece!")}, 500)
+        capturedWhite++
+        $('#whiteCaught').html(capturedWhite)
+      } else if (captured && enemy == 'black') {
+        setTimeout(function(){alert("Captured Black Piece!")}, 500)
+        capturedBlack++
+        $('#blackCaught').html(capturedBlack)
       }
     }
   }
@@ -141,4 +145,6 @@ resetButton.on('click', function(){
     currentTurn = 'B'
     $('#displayTurn').removeClass('white black')
     $('#displayTurn').addClass('black')
+    $('#blackCaught').html(0)
+    $('#whiteCaught').html(0)
 })
