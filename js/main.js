@@ -112,7 +112,6 @@ function checkNeighbors(neighborsArr) {
         var captureId = '#' + captureArray[j]
         if (!$(captureId).hasClass(friend)) {
           captured = false
-        } else {
         }
       }
       console.log("captured is", captured)
