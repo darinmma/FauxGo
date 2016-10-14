@@ -12,9 +12,11 @@ HTML, CSS, Javascript and JQuery were used to create this Game.
 
 Go is a simple game of strategy that can become quite complex.  What you have before you is a simplified version which tracks single piece capture events.  In order to make the game work I used HTML and CSS to create a game board and Javascript to built my game logic.  I also utilized JQuery to track the pieces on the board as well as score tracking.
 
-##Unsolved Problems
+##Unsolved Problems/Reach Goals
 
 I haven't yet been able to figure out how to remove captured pieces from the game board.
+
+The Endgame here is still to create a full game logic that not only tracks single captures, but multiple piece captures as well as territory tracking.
 
 ##User Stories
 
